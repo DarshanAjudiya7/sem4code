@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #f0f2f5;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+            line-height: 1.6;
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+        }
+        .resume-container {
+            background-color: #fff;
+            width: 100%;
+            max-width: 800px; 
+            padding: 40px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-radius: 5px;
+        }
+
+        header {
+            border-bottom: 2px solid #2c3e50;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        header .title {
+            font-size: 1.1rem;
+            color: #555;
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+
+        .contact-info {
+            font-size: 0.9rem;
+            color: #666;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .contact-info span {
+            display: flex;
+            align-items: center;
+        }
+
+        section {
+            margin-bottom: 25px;
+        }
+
+        h2 {
+            font-size: 1.2rem;
+            color: #2c3e50;
+            text-transform: uppercase;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+        }
+
+        .job, .project, .education-item {
+            margin-bottom: 15px;
+        }
+
+        .job-header, .edu-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 5px;
+        }
+
+        .job-title, .degree {
+            font-weight: bold;
+            font-size: 1.05rem;
+            color: #222;
+        }
+
+        .company, .university {
+            font-style: italic;
+            color: #555;
+        }
+
+        .date {
+            font-size: 0.85rem;
+            color: #888;
+            white-space: nowrap;
+        }
+
+        ul {
+            list-style-type: square;
+            margin-left: 20px;
+            margin-top: 5px;
+        }
+
+        li {
+            margin-bottom: 3px;
+        }
+
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill-tag {
+            background-color: #eef2f5;
+            color: #2c3e50;
+            padding: 5px 12px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        @media print {
+            body {
+                background: none;
+                padding: 0;
+            }
+            .resume-container {
+                box-shadow: none;
+                width: 100%;
+                max-width: 100%;
+                padding: 0 20px; 
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="resume-container">
+        <header>
+            <h1>Darshan Ajudiya</h1>
+            <div class="title">Open Source Contributor / Web Developer</div>
+            <div class="contact-info">
+                <span>darshanajudiya07@gmail.com</span> |
+                <span>+91 93160 88633</span> |
+                <span>https://www.linkedin.com/in/darshan-ajudiya-a5b301310</span> |
+                <span>https://github.com/DarshanAjudiya7</span>
+            </div>
+        </header>
+
+        <section>
+            <h2>Summary</h2>
+            <p>Currenly, I am pursuing my Bachelor of Technology of 2nd year in Computer Engineering at Birla Vishvakarma Vidhyalaya. In 1st year of my college, I have Learnt many things related to web development and database management. Recently, I have successfully contributes in Hacktoberfest 2025 & achieved a nice t-shirt from digitalOcean , which is very wonderful experience for me. I enjoy collaborating on projects that make a difference.
+
+            </p>
+                
+        </section>
+
+        <section>
+            <h2>Technical Skills</h2>
+            <div class="skills-grid">
+                <span class="skill-tag">HTML5 & CSS3</span>
+                <span class="skill-tag">JavaScript</span>
+                <span class="skill-tag">MySQL</span>
+                <span class="skill-tag">Git & GitHub</span>
+                <span class="skill-tag">C++</span>
+                <span class="skill-tag">Responsive Design</span>
+            </div>
+        </section>
+
+        <section>
+            <h2>Projects</h2>
+            
+            <div class="project">
+                <div class="job-header">
+                    <span class="job-title">Portfolio Website</span>
+                    <span class="date">Feb 2025</span>
+                </div>
+                <ul>
+                    <li>Designed and developed a personal portfolio using HTML, CSS, and JavaScript.</li>
+                    <li>Implemented a fully responsive layout using Flexbox and CSS Grid.</li>
+                    <li>Deployed the application using GitHub Pages.</li>
+                </ul>
+            </div>
+
+            <div class="project">
+                <div class="job-header">
+                    <span class="job-title">AI Chatbot</span>
+                    <span class="date">Oct 2025</span>
+                </div>
+                <ul>
+                    <li>Developed an AI-powered chatbot using Python, Langchain and Ollama.</li>
+                    <li>Real-time user interaction via a web-based UI. Dynamic responses powered by a local AI model (Ollama).</li>
+                    <li>Smooth integration between frontend and backend using Flask routes.Minimal, responsive UI with a clear chat history display.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2>Education</h2>
+            
+            <div class="education-item">
+                <div class="edu-header">
+                    <span class="degree">Bachelor of Technology (B.Tech)</span>
+                    <span class="date">2024 - 2028</span>
+                </div>
+                <div class="university">Birla Vishvakarma Vidhyalaya</div>
+                <div>CGPA: 7.5/10.0 </div>
+            </div>
+
+            <div class="education-item">
+                <div class="edu-header">
+                    <span class="degree">Higher Secondary Education (12th)</span>
+                    <span class="date">2024</span>
+                </div>
+                <div class="university">GK Dholakiya Schools</div>
+            </div>
+        </section>
+
+    </div>
+
+</body>
+</html>

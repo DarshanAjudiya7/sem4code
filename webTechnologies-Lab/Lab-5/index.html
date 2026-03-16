@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mastering Web Technologies</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="main-header">
+        <div class="container-fluid">
+            <h1>Web Development Masterclass</h1>
+        </div>
+    </header>
+
+    <nav class="left-menu">
+        <ul>
+            <li><a href="#toc">Table of Content</a></li>
+            <li><a href="#layout">Page Layout</a></li>
+            <li><a href="#box-model">Box Model</a></li>
+            <li><a href="#css3-bootstrap">CSS3 & Bootstrap</a></li>
+            <li><a href="#bouncing-ball">Bouncing Ball</a></li>
+            <li><a href="#bicycle-anim">Moving Bicycle</a></li>
+        </ul>
+    </nav>
+
+    <main class="main-content">
+        <div class="container">
+
+            <section id="toc" class="mb-5">
+                <h2>Module 1: Course Syllabus</h2>
+                <div class="toc-container">
+                    <h3>Course: Web Technologies</h3>
+                    <h4>Table of Contents</h4>
+
+                    <ol class="toc-root">
+                        <li>HTML5 Structure & Semantics</li>
+                        <li>CSS3 Styling & Design
+                            <ol>
+                                <li>Introduction to Cascading Style Sheets</li>
+                                <li>Integration Methods
+                                    <ol>
+                                        <li>External Stylesheets
+                                            <ol>
+                                                <li>Best Practices for Scalability</li>
+                                            </ol>
+                                        </li>
+                                    </ol>
+                                </li>
+                                <li>Cross-Browser Compatibility</li>
+                            </ol>
+                        </li>
+                        <li>XML & Data Representation</li>
+                    </ol>
+                </div>
+            </section>
+
+            <hr>
+
+            <section id="layout" class="mb-5">
+                <h2>Module 2: Layout & Positioning Patterns</h2>
+                <p>
+                    Understanding how to structure web applications using advanced positioning techniques.
+                </p>
+                <ul>
+                    <li><strong>Sticky Header:</strong> Keeps navigation accessible while scrolling.</li>
+                    <li><strong>Fixed Sidebar:</strong> Persistent access to course modules.</li>
+                    <li><strong>Fluid Content:</strong> Adapts to remaining screen real estate.</li>
+                </ul>
+                <div class="position-demo relative-box">
+                    <strong>Feature Highlight</strong><br>
+                    (Relative Positioning Flow)
+                    <div class="absolute-box">
+                        <strong>New!</strong><br>
+                        (Absolute Overlay)
+                    </div>
+                </div>
+            </section>
+
+            <hr>
+
+            <section id="box-model" class="mb-5">
+                <h2>Module 3: The CSS Box Model</h2>
+                <p>Visualizing the fundamental architecture of every DOM element.</p>
+
+                <div class="box-model-container">
+                    <div class="margin-area">
+                        Margin (External Spacing)
+                        <div class="border-area">
+                            Border (Boundary)
+                            <div class="padding-area">
+                                Padding (Internal Spacing)
+                                <div class="content-area">
+                                    Core Content
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <hr>
+
+            <section id="css3-bootstrap" class="mb-5">
+                <h2>Module 4: Modern UI Components</h2>
+                <p>Leveraging frameworks and modern CSS features for rapid development.</p>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card shadow-sm border-primary">
+                            <div class="card-header bg-primary text-white">
+                                Featured Course
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Full-Stack Development</h5>
+                                <p class="card-text">Master the MERN stack with our comprehensive guide. Build
+                                    real-world applications including social media platforms, dashboards, and e-commerce
+                                    sites.</p>
+                                <button class="btn btn-primary">Enroll Now</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="css3-demo-box">
+                            <strong>Interactive Element</strong><br>
+                            Hover for 3D Transform
+                        </div>
+                        <div class="css3-animation-box mt-3">
+                            <strong>Motion UI</strong><br>
+                            CSS3 Keyframe Animation
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <hr>
+
+            <section id="bouncing-ball" class="mb-5">
+                <h2>Module 5: Physics Simulation</h2>
+                <p>Creating realistic motion effects without JavaScript.</p>
+
+                <div class="bouncing-container">
+                    <div class="ball"></div>
+                </div>
+            </section>
+
+            <hr>
+
+            <section id="bicycle-anim" class="mb-5">
+                <h2>Module 6: Moving Bicycle</h2>
+                <p>Simple CSS Animation of a bicycle running in a rectangle.</p>
+
+                <div class="bicycle-container">
+                    <div class="bicycle">
+                        <div class="wheel front"></div>
+                        <div class="wheel back"></div>
+                        <div class="frame"></div>
+                        <div class="seat"></div>
+                        <div class="handle"></div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

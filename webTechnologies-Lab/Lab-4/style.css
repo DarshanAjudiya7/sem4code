@@ -1,0 +1,43 @@
+
+body {
+    background-color: red;
+    color: white; 
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-style: normal;
+    font-size: 150%;
+}
+
+p {
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+}
+
+.formatted-text {
+    text-transform: capitalize;
+    text-decoration: underline;
+    text-indent: 1cm;
+}
+
+ul li {
+    list-style-type: circle;
+}
+
+li {
+    border-top: 2px solid white;
+    border-right: 2px solid white;
+    margin: 1cm;
+    padding: 5px;
+}
+
+a:link {
+    color: white;
+}
+a:visited {
+    color: lightgray;
+}
+a:hover {
+    color: yellow;
+    font-size: 1.2em;
+}

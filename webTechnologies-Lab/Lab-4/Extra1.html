@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Navigation Menu</title>
+    <style>
+        /* General styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+        }
+
+        /* 1. Remove default list styling */
+        ul.nav-menu {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            background-color: #333; /* Dark background */
+            overflow: hidden;
+            
+            /* 2. Use flexbox for horizontal layout */
+            display: flex;
+            flex-wrap: wrap; 
+        }
+
+        li.nav-item a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+        }
+
+        /* 3. Change background color on hover */
+        li.nav-item a:hover {
+            background-color: #4CAF50; /* Green on hover */
+            color: white;
+        }
+
+        /* 4. Media Query: Vertical on screens less than 600px */
+        @media screen and (max-width: 600px) {
+            ul.nav-menu {
+                flex-direction: column; /* Stacks items vertically */
+            }
+            li.nav-item {
+                width: 100%;
+                text-align: center;
+                border-bottom: 1px solid #444; /* Separator lines for mobile */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Responsive Menu Demo</h2>
+    <p>Welcome to my website...</p>
+
+    <ul class="nav-menu">
+        <li class="nav-item"><a href="#home">Home</a></li>
+        <li class="nav-item"><a href="#services">Services</a></li>
+        <li class="nav-item"><a href="#about">About</a></li>
+        <li class="nav-item"><a href="#contact">Contact</a></li>
+    </ul>
+
+</body>
+</html>

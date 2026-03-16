@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<script>
+
+document.write("<b>Exercise 1: Operators</b><br>");
+
+var a = 2, b = 3;
+document.write("2 + 3 = " + (a + b) + "<br>");
+document.write('"hello" + " bvm" = ' + ("hello" + " bvm") + "<br>");
+document.write('2 + "MB" = ' + (2 + "MB") + "<br>");
+document.write("3 - 2 = " + (b - a) + "<br>");
+document.write('3 - "MB" = ' + (b - "MB") + "<br>");
+document.write("3 * 2 = " + (b * a) + "<br>");
+document.write("5 / 2 = " + (5 / 2) + "<br>");
+document.write("2 / 0 = " + (2 / 0) + "<br>");
+document.write("5 % 2 = " + (5 % 2) + "<br>");
+document.write("2 % 0 = " + (2 % 0) + "<br>");
+
+var x = 1;
+document.write("x = 1; x++ = " + (x++) + "<br>");
+document.write("x now = " + x + "<br>");
+var y = ++x;
+document.write("y = ++x; y=" + y + " x=" + x + "<br>");
+var y2 = x++;
+document.write("y = x++; y=" + y2 + " x=" + x + "<br>");
+x = 5;
+document.write("x = 5; x-- = " + (x--) + "<br>");
+document.write("x now = " + x + "<br>");
+var y3 = --x;
+document.write("y = --x; y=" + y3 + " x=" + x + "<br>");
+
+document.write("<br><b>Exercise 2: Bitwise Operators</b><br>");
+
+var a = 5, b = 3;
+document.write("a = 5, b = 3<br>");
+document.write("a & b (AND) = " + (a & b) + "<br>");
+document.write("a | b (OR)  = " + (a | b) + "<br>");
+document.write("a ^ b (XOR) = " + (a ^ b) + "<br>");
+document.write("~a (NOT)    = " + (~a) + "<br>");
+document.write("a << 1 (Left Shift)  = " + (a << 1) + "<br>");
+document.write("a >> 1 (Right Shift) = " + (a >> 1) + "<br>");
+
+</script>
+
+<br>
+<b>Exercise 3: Fibonacci Numbers</b><br>
+Enter N: <input type="number" id="fibN">
+<button onclick="showFib()">Show</button>
+<p id="fibOut"></p>
+
+<b>Exercise 4: Prime Numbers in a Range</b><br>
+Start: <input type="number" id="primeStart">
+End: <input type="number" id="primeEnd">
+<button onclick="showPrime()">Show</button>
+<p id="primeOut"></p>
+
+<b>Exercise 5: Array Methods</b><br>
+Enter numbers (comma separated): <input type="text" id="arrInput">
+<button onclick="showArrayMethods()">Show</button>
+<p id="arrOut"></p>
+
+<b>Exercise 6: Sort Array</b><br>
+Enter numbers (comma separated): <input type="text" id="sortInput">
+<button onclick="showSort()">Show</button>
+<p id="sortOut"></p>
+
+<script>
+
+function showFib() {
+  var n = parseInt(document.getElementById("fibN").value);
+  if (isNaN(n) || n <= 0) {
+    document.getElementById("fibOut").innerHTML = "Please enter a valid number.";
+    return;
+  }
+  var f1 = 0, f2 = 1, temp;
+  var result = "";
+  for (var i = 0; i < n; i++) {
+    result += f1 + " ";
+    temp = f1 + f2;
+    f1 = f2;
+    f2 = temp;
+  }
+  document.getElementById("fibOut").innerHTML = "First " + n + " Fibonacci numbers: " + result;
+}
+
+function showPrime() {
+  var start = parseInt(document.getElementById("primeStart").value);
+  var end = parseInt(document.getElementById("primeEnd").value);
+  if (isNaN(start) || isNaN(end) || start > end) {
+    document.getElementById("primeOut").innerHTML = "Please enter a valid range.";
+    return;
+  }
+  var result = "";
+  for (var i = start; i <= end; i++) {
+    var isPrime = true;
+    if (i < 2) isPrime = false;
+    for (var j = 2; j <= Math.sqrt(i); j++) {
+      if (i % j == 0) { isPrime = false; break; }
+    }
+    if (isPrime) result += i + " ";
+  }
+  document.getElementById("primeOut").innerHTML = "Primes between " + start + " and " + end + ": " + result;
+}
+
+function showArrayMethods() {
+  var input = document.getElementById("arrInput").value;
+  var arr = input.split(",").map(function(x){ return parseInt(x.trim()); });
+  if (arr.some(isNaN)) {
+    document.getElementById("arrOut").innerHTML = "Please enter valid numbers.";
+    return;
+  }
+  var out = "";
+  out += "Original:  " + arr + "<br>";
+  out += "reverse(): " + arr.slice().reverse() + "<br>";
+  out += "concat([10,20,30]): " + arr.concat([10,20,30]) + "<br>";
+  out += "sort() lexicographic: " + arr.slice().sort() + "<br>";
+  out += "sort() numeric: " + arr.slice().sort(function(a,b){ return a - b; }) + "<br>";
+  out += 'join("-"): ' + arr.join("-") + "<br>";
+  document.getElementById("arrOut").innerHTML = out;
+}
+
+function showSort() {
+  var input = document.getElementById("sortInput").value;
+  var arr = input.split(",").map(function(x){ return parseInt(x.trim()); });
+  if (arr.some(isNaN)) {
+    document.getElementById("sortOut").innerHTML = "Please enter valid numbers.";
+    return;
+  }
+  var out = "";
+  out += "Original:   " + arr + "<br>";
+  out += "Ascending:  " + arr.slice().sort(function(a,b){ return a - b; }) + "<br>";
+  out += "Descending: " + arr.slice().sort(function(a,b){ return b - a; }) + "<br>";
+  document.getElementById("sortOut").innerHTML = out;
+}
+
+</script>
+
+</body>
+</html>

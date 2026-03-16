@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction to JavaScript</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        div, header, nav, main, aside, footer {
+            box-sizing: border-box;
+        }
+
+        header {
+            background-color: #f7df1e; /* JS Yellow color */
+            color: black;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 5px solid #d4be11;
+            width: 100%;
+        }
+
+        nav {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        nav a:hover {
+            background-color: #555;
+            color: #f7df1e;
+        }
+
+        .container {
+            display: flex;
+            flex: 1;
+            flex-wrap: wrap;
+            padding: 20px;
+            gap: 20px;
+        }
+
+        main {
+            flex: 3;
+            background-color: white;
+            padding: 20px;
+            border: 1px solid #ddd;
+            line-height: 1.6;
+        }
+
+        aside {
+            flex: 1;
+            background-color: #fff3cd;
+            padding: 20px;
+            border: 2px dashed #ffc107;
+        }
+        
+        /* Added a small style for code blocks */
+        code {
+            background-color: #eee;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: monospace;
+            color: #d63384;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-top: 5px solid #222;
+            width: 100%;
+            margin-top: auto;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>JavaScript Tutorial</h1>
+    </header>
+
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Learn JS</a>
+        <a href="#">References</a>
+        <a href="#">Exercises</a>
+    </nav>
+
+    <div class="container">
+        <main>
+            <h2>Introduction to JavaScript</h2>
+            
+            <p><strong>JavaScript (JS)</strong> is the world's most popular programming language. It is the programming language of the Web. JavaScript is easy to learn and widely used to create interactive web pages.</p>
+            
+            <h3>Why Study JavaScript?</h3>
+            <p>JavaScript is one of the <strong>3 languages</strong> all web developers must learn:</p>
+            <ol>
+                <li><strong>HTML</strong> to define the content of web pages.</li>
+                <li><strong>CSS</strong> to specify the layout of web pages.</li>
+                <li><strong>JavaScript</strong> to program the behavior of web pages.</li>
+            </ol>
+
+            <h3>What Can JavaScript Do?</h3>
+            <p>JavaScript can change HTML content, attribute values, and styles (CSS). It can also hide or show HTML elements.</p>
+            
+            <div style="background: #f9f9f9; padding: 15px; border-left: 5px solid #f7df1e; margin: 20px 0;">
+                <h4>Example Syntax</h4>
+                <p>Here is how you might change text inside an element:</p>
+                <code>document.getElementById("demo").innerHTML = "Hello JavaScript!";</code>
+            </div>
+
+            <p>Unlike HTML and CSS, which are markup and style languages, JavaScript is a true <strong>programming language</strong> that supports variables, loops, functions, and objects.</p>
+        </main>
+
+        <aside>
+            <h3>JS Topics</h3>
+            <p>Quick navigation for this tutorial:</p>
+            <ul style="list-style-type: square; padding-left: 20px;">
+                <li><a href="#" style="text-decoration:none; color:#333;">JS Output</a></li>
+                <li><a href="#" style="text-decoration:none; color:#333;">JS Statements</a></li>
+                <li><a href="#" style="text-decoration:none; color:#333;">JS Syntax</a></li>
+                <li><a href="#" style="text-decoration:none; color:#333;">JS Variables</a></li>
+                <li><a href="#" style="text-decoration:none; color:#333;">JS Operators</a></li>
+                <li><a href="#" style="text-decoration:none; color:#333;">JS Functions</a></li>
+            </ul>
+        </aside>
+    </div>
+
+    <footer>
+        <p>JavaScript Tutorial &copy; 2026 | Designed with CSS Box Model</p>
+    </footer>
+
+</body>
+
+</html>

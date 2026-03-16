@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript Exercises 1-8</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+
+        .tabs { display: flex; gap: 5px; flex-wrap: wrap; margin-bottom: 20px; }
+        .tabs button { padding: 8px 14px; cursor: pointer; background: #ddd; border: 1px solid #aaa; }
+        .tabs button.active { background: #333; color: white; }
+
+        .page { display: none; }
+        .page.active { display: block; }
+
+        h2 { color: #333; border-bottom: 2px solid #333; padding-bottom: 5px; }
+
+        input, select, button {
+            padding: 8px;
+            margin: 5px 0;
+            font-size: 14px;
+        }
+
+        input, select { border: 1px solid #aaa; width: 250px; }
+        button.btn { background: #2c3e50; color: white; border: none; cursor: pointer; width: 260px; }
+        button.btn:hover { background: #444; }
+
+        .error { color: red; font-size: 12px; display: none; }
+        .error.show { display: block; }
+
+        table { border-collapse: collapse; width: 100%; max-width: 600px; }
+        table td, table th { border: 1px solid #ccc; padding: 8px 12px; text-align: left; font-size: 13px; }
+        table th { background: #eee; }
+
+        .row { padding: 6px 0; border-bottom: 1px solid #eee; }
+        .row label { display: inline-block; width: 200px; font-weight: bold; color: #555; }
+
+        #mouseArea {
+            width: 100%;
+            max-width: 500px;
+            height: 150px;
+            background: #f0f0f0;
+            border: 1px solid #aaa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: crosshair;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+
+<h1>JavaScript Exercises 1-8</h1>
+
+<!-- TAB BUTTONS -->
+<div class="tabs">
+    <button class="active" onclick="show('ex1', this)">Ex 1: Button Window</button>
+    <button onclick="show('ex2', this)">Ex 2: Location</button>
+    <button onclick="show('ex3', this)">Ex 3: Navigator</button>
+    <button onclick="show('ex4', this)">Ex 4: Browser Detect</button>
+    <button onclick="show('ex5', this)">Ex 5: History</button>
+    <button onclick="show('ex6', this)">Ex 6: Change Event</button>
+    <button onclick="show('ex7', this)">Ex 7: Mouse & Key</button>
+    <button onclick="show('ex8', this)">Ex 8: Form Validate</button>
+</div>
+
+<div id="ex1" class="page active">
+    <h2>Exercise 1 - Open New Window on Button Click</h2>
+    <p>Click the button below to open a new window.</p>
+    <button class="btn" onclick="window.open('https://www.google.com', '_blank', 'width=800,height=600')">
+        Click Me - Open New Window
+    </button>
+</div>
+
+<div id="ex2" class="page">
+    <h2>Exercise 2 - Location Object Details</h2>
+    <table id="locTable">
+        <tr><th>Property</th><th>Value</th></tr>
+    </table>
+    <script>
+        var locProps = ['href','protocol','host','hostname','port','pathname','search','hash','origin'];
+        var lt = document.getElementById('locTable');
+        locProps.forEach(function(p) {
+            var row = lt.insertRow();
+            row.insertCell().textContent = p;
+            row.insertCell().textContent = window.location[p] || '(empty)';
+        });
+    </script>
+</div>
+
+<div id="ex3" class="page">
+    <h2>Exercise 3 - Navigator Object Details</h2>
+    <table id="navTable">
+        <tr><th>Property</th><th>Value</th></tr>
+    </table>
+    <script>
+        var navProps = {
+            appName: navigator.appName,
+            appVersion: navigator.appVersion,
+            userAgent: navigator.userAgent,
+            platform: navigator.platform,
+            language: navigator.language,
+            onLine: navigator.onLine,
+            cookieEnabled: navigator.cookieEnabled,
+            hardwareConcurrency: navigator.hardwareConcurrency,
+            maxTouchPoints: navigator.maxTouchPoints
+        };
+        var nt = document.getElementById('navTable');
+        for (var key in navProps) {
+            var row = nt.insertRow();
+            row.insertCell().textContent = key;
+            row.insertCell().textContent = navProps[key];
+        }
+    </script>
+</div>
+
+<div id="ex4" class="page">
+    <h2>Exercise 4 - Browser Name Detection and Redirect</h2>
+    <p id="browserResult"></p>
+    <p><b>User Agent:</b> <span id="uaText" style="font-size:12px;"></span></p>
+    <button class="btn" onclick="redirectBrowser()">Open Browser-Specific Page</button>
+    <script>
+        function detectBrowser() {
+            var ua = navigator.userAgent;
+            if (ua.indexOf('Edg') > -1)    return 'Edge';
+            if (ua.indexOf('OPR') > -1)    return 'Opera';
+            if (ua.indexOf('Firefox') > -1) return 'Firefox';
+            if (ua.indexOf('Chrome') > -1)  return 'Chrome';
+            if (ua.indexOf('Safari') > -1)  return 'Safari';
+            return 'Unknown';
+        }
+        var browser = detectBrowser();
+        document.getElementById('browserResult').innerHTML = '<b>Detected Browser:</b> ' + browser;
+        document.getElementById('uaText').textContent = navigator.userAgent;
+
+        function redirectBrowser() {
+            var pages = {
+                Chrome:  'chrome_version.html',
+                Edge:    'edge_version.html',
+                Firefox: 'firefox_version.html',
+                Safari:  'safari_version.html',
+                Opera:   'opera_version.html',
+                Unknown: 'default_version.html'
+            };
+            alert('Redirecting to: ' + pages[browser]);
+            // window.location.href = pages[browser];
+        }
+    </script>
+</div>
+
+<div id="ex5" class="page">
+    <h2>Exercise 5 - History Object Details</h2>
+    <div class="row"><label>history.length</label> <span id="hlen"></span></div>
+    <div class="row"><label>history.scrollRestoration</label> <span id="hscroll"></span></div>
+    <div class="row"><label>history.state</label> <span id="hstate"></span></div>
+    <br>
+    <button class="btn" onclick="history.back()">Back</button><br>
+    <button class="btn" onclick="history.forward()">Forward</button><br>
+    <button class="btn" onclick="history.go(-1)">Go(-1)</button><br>
+    <button class="btn" onclick="pushNewState()">Push State</button>
+    <script>
+        function refreshHistory() {
+            document.getElementById('hlen').textContent    = history.length;
+            document.getElementById('hscroll').textContent = history.scrollRestoration || 'N/A';
+            document.getElementById('hstate').textContent  = JSON.stringify(history.state) || 'null';
+        }
+        function pushNewState() {
+            history.pushState({ page: 'demo' }, 'Demo', '#demo');
+            refreshHistory();
+        }
+        refreshHistory();
+    </script>
+</div>
+
+<div id="ex6" class="page">
+    <h2>Exercise 6 - Change Event with Selection List</h2>
+
+    <label>Item:</label><br>
+    <select id="itemSelect" onchange="updateModels()">
+        <option value="">-- Select Item --</option>
+        <option value="Monitor">Monitor</option>
+        <option value="HDD">HDD</option>
+        <option value="Keyboard">Keyboard</option>
+    </select>
+    <br><br>
+
+    <label>Model:</label><br>
+    <select id="modelSelect" onchange="showSelected()">
+        <option value="">-- Select Model --</option>
+    </select>
+    <br><br>
+
+    <div id="selResult"></div>
+
+    <script>
+        var modelData = {
+            Monitor:  ['Acer 21', 'Dell 22', 'LG 24'],
+            HDD:      ['500GB', '1TB', '2TB'],
+            Keyboard: ['Logitech K120', 'Dell KB216']
+        };
+
+        function updateModels() {
+            var item = document.getElementById('itemSelect').value;
+            var modelSel = document.getElementById('modelSelect');
+            modelSel.innerHTML = '<option value="">-- Select Model --</option>';
+            document.getElementById('selResult').innerHTML = '';
+            if (item && modelData[item]) {
+                for (var i = 0; i < modelData[item].length; i++) {
+                    modelSel.innerHTML += '<option>' + modelData[item][i] + '</option>';
+                }
+            }
+        }
+
+        function showSelected() {
+            var item  = document.getElementById('itemSelect').value;
+            var model = document.getElementById('modelSelect').value;
+            if (item && model) {
+                document.getElementById('selResult').innerHTML =
+                    '<b>Selected Item:</b> ' + item + '<br><b>Selected Model:</b> ' + model;
+            }
+        }
+    </script>
+</div>
+
+<div id="ex7" class="page">
+    <h2>Exercise 7 - Mouse Location and Keyboard Key Code</h2>
+
+    <h4>Mouse Position</h4>
+    <div id="mouseArea">Move mouse here</div>
+    <p><b>X:</b> <span id="mx">0</span> &nbsp; <b>Y:</b> <span id="my">0</span></p>
+
+    <h4>Keyboard Input</h4>
+    <input type="text" id="keyInput" placeholder="Type a key here..." style="width:250px;">
+    <p><b>Key:</b> <span id="keyChar">-</span></p>
+    <p><b>Key Code:</b> <span id="keyCode">-</span></p>
+    <p><b>Unicode:</b> <span id="keyUnicode">-</span></p>
+
+    <script>
+        document.getElementById('mouseArea').addEventListener('mousemove', function(e) {
+            var rect = this.getBoundingClientRect();
+            document.getElementById('mx').textContent = Math.round(e.clientX - rect.left);
+            document.getElementById('my').textContent = Math.round(e.clientY - rect.top);
+        });
+
+        document.getElementById('keyInput').addEventListener('keydown', function(e) {
+            var code    = e.keyCode || e.which;
+            var unicode = e.key.length === 1 ? e.key.charCodeAt(0) : code;
+            document.getElementById('keyChar').textContent    = e.key;
+            document.getElementById('keyCode').textContent    = code;
+            document.getElementById('keyUnicode').textContent = 'U+' + unicode.toString(16).toUpperCase().padStart(4, '0') + ' (' + unicode + ')';
+        });
+    </script>
+</div>
+
+<div id="ex8" class="page">
+    <h2>Exercise 8 - Register Yourself (Form Validation)</h2>
+
+    <label>Full Name *</label><br>
+    <input type="text" id="name" placeholder="Enter name"><br>
+    <span class="error" id="nameErr">Name is required (letters only, min 3 chars)</span>
+
+    <br>
+    <label>Email *</label><br>
+    <input type="text" id="email" placeholder="Enter email"><br>
+    <span class="error" id="emailErr">Enter a valid email address</span>
+
+    <br>
+    <label>Password *</label><br>
+    <input type="password" id="password" placeholder="Min 6 characters"><br>
+    <span class="error" id="passwordErr">Password must be at least 6 characters</span>
+
+    <br>
+    <label>Mobile *</label><br>
+    <input type="text" id="mobile" placeholder="10-digit number"><br>
+    <span class="error" id="mobileErr">Enter valid 10-digit mobile number</span>
+
+    <br>
+    <label>Gender *</label><br>
+    <select id="gender" style="width:268px;">
+        <option value="">-- Select Gender --</option>
+        <option>Male</option>
+        <option>Female</option>
+        <option>Other</option>
+    </select><br>
+    <span class="error" id="genderErr">Please select a gender</span>
+
+    <br><br>
+    <button class="btn" onclick="validateForm()">Register</button>
+    <p id="successMsg" style="color:green; display:none;">Registration Successful!</p>
+
+    <script>
+        function validateForm() {
+            var valid = true;
+
+            var name     = document.getElementById('name').value.trim();
+            var email    = document.getElementById('email').value.trim();
+            var password = document.getElementById('password').value;
+            var mobile   = document.getElementById('mobile').value.trim();
+            var gender   = document.getElementById('gender').value;
+
+            document.getElementById('successMsg').style.display = 'none';
+
+            if (!name) { alert('Name field is blank!'); }
+            var nameOk = name.length >= 3 && /^[a-zA-Z\s]+$/.test(name);
+            document.getElementById('nameErr').className     = nameOk ? 'error' : 'error show';
+
+            if (!email) { alert('Email field is blank!'); }
+            var emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+            document.getElementById('emailErr').className    = emailOk ? 'error' : 'error show';
+
+            if (!password) { alert('Password field is blank!'); }
+            var passOk = password.length >= 6;
+            document.getElementById('passwordErr').className = passOk ? 'error' : 'error show';
+
+            if (!mobile) { alert('Mobile field is blank!'); }
+            var mobOk = /^\d{10}$/.test(mobile);
+            document.getElementById('mobileErr').className   = mobOk ? 'error' : 'error show';
+
+            if (!gender) { alert('Please select a gender!'); }
+            var genOk = gender !== '';
+            document.getElementById('genderErr').className   = genOk ? 'error' : 'error show';
+
+            if (nameOk && emailOk && passOk && mobOk && genOk) {
+                document.getElementById('successMsg').style.display = 'block';
+            }
+        }
+    </script>
+</div>
+
+<script>
+    function show(id, btn) {
+        var pages = document.querySelectorAll('.page');
+        var btns  = document.querySelectorAll('.tabs button');
+        for (var i = 0; i < pages.length; i++) pages[i].classList.remove('active');
+        for (var i = 0; i < btns.length; i++)  btns[i].classList.remove('active');
+        document.getElementById(id).classList.add('active');
+        btn.classList.add('active');
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Page - CSS Assignment</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+     
+    table,
+    th {
+        border: 2px solid black;
+        border-collapse: collapse;
+        height: 50px;
+        width: 1000px;
+    }
+
+    tr:nth-child(even) {
+        background-color: rgb(117, 148, 148);
+    }
+
+    tr:nth-child(odd) {
+        background-color: rgb(166, 176, 176);
+    }
+    
+    </style>
+</head>
+<body>
+
+    <h1><center>Welcome to My Page</center></h1>
+
+    <div class="menu">
+        <h3>Main Menu</h3>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </div>
+
+    <div>
+        <p>My name is Darshan Ajudiya.</p>
+        
+        <p class="formatted-text">
+            I am a student of Birla Vishvakarama Mahavidhyalaya college. I am currently pursuing my B.Tech in Computer Engineering. I have a keen interest in web development and enjoy creating responsive and user-friendly websites.
+        </p>
+    </div>
+
+    <div class="home">
+      <h2 style="color: rgb(56, 183, 86)">
+        <b><center>Data Highlights - Census 2011</center></b>
+      </h2>
+
+      <h4 style="color: rgb(225, 225, 53)">
+        <center>Population (in Crore)</center>
+      </h4>
+
+      <table align="center">
+        <tr>
+          <th></th>
+          <th>2001</th>
+          <th>2011</th>
+          <th>Difference</th>
+        </tr>
+        <tr>
+          <th>India</th>
+          <th>102.9</th>
+          <th>121.0</th>
+          <th>18.1</th>
+        </tr>
+        <tr>
+          <th>Rural</th>
+          <th>74.3</th>
+          <th>83.3</th>
+          <th>9.0</th>
+        </tr>
+        <tr>
+          <th>Urban</th>
+          <th>28.6</th>
+          <th>37.7</th>
+          <th>9.1</th>
+        </tr>
+      </table>
+    </div>
+
+</body>
+</html>
